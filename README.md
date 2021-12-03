@@ -2,7 +2,7 @@
 
 **Due: Thursday, December 16, 10:00pm CDT**
 
-The purpose of this assignment is to gain experience in designing and implementing graphical user interfaces using Babylon.js and WebXR .  This is an **optional bonus** assignment.  If you choose to complete this assignment, your lowest score from the previous six assignments will be dropped and replaced with this one.  If you receive a lower score on this assignment, it will not be counted against you.
+The purpose of this assignment is to gain experience in designing and implementing graphical user interfaces using Babylon.js and WebXR .  This is an **optional bonus** assignment.  If you choose to complete this assignment, your lowest score from the previous assignments will be dropped and replaced with this one.  If you receive a lower score on this assignment, it will not be counted against you.
 
 ## Submission Information
 
@@ -22,12 +22,7 @@ Custom GUI Instructions:
 
 Graded out of 20 points.  
 
-1. Add at least six mesh objects to your environment. (1)
-2. Implement selection and de-selection using the laser pointer. Make sure to provide a visual indicator for the currently selected object. (1)
-3. Create a GUI plane that is attached to the controller held in the user's non-dominant hand. Make sure to position the plane so that it is comfortable for the user to view. (2)
-4. Add a [ColorPicker](https://doc.babylonjs.com/divingDeeper/gui/gui#colorpicker) to the handheld GUI. (2)
-5. The handheld GUI should remain hidden when no object is currently selected.  When the user selects an object, the GUI panel should be made visible, and the value of the ColorPicker should be set the object's current material color. (2)
-6. Use the ColorPicker to set the material color of the currently selected object. The material should be modified in real-time as the user changes the currently selected color. (2)
+1. Add at least six mesh objects to your environment.  You can use [UnityGLTF](https://github.com/KhronosGroup/UnityGLTF) to a export assets from Unity.  If you are running Windows, you can download the package posted on Canvas with prebuilt binaries.  For other platforms, you will need to download it from GitHub and compile the C# module manually.  (4)
 7. Create your own custom spatial GUI! You are free to design any type of user interface that you want. However, the GUI should contain at least five distinct types of interactive controls. (Non-interactive controls such as a static text block do not count.) You can find a list of control types in the [Babylon documentation](https://doc.babylonjs.com/divingDeeper/gui/gui).   You can use both 2D and 3D controls, and you can split them up among one or more GUI planes as appropriate. (1 point per control type, 5 points max)
 8. Link the GUI controls to perform useful functions such as object manipulation, locomotion, or other 3D tasks. Creativity is encouraged! Again, you are free to implement any type of object manipulation that you want. However, make sure to include instructions for using your custom GUI in the documentation above. (1 point per control type, 5 points max)
 

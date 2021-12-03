@@ -4,11 +4,12 @@
  * License: Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International
  */ 
 
-import { Engine, Scene, UniversalCamera, Logger } from "@babylonjs/core";
+import { Engine, Scene, UniversalCamera, Logger, MeshBuilder } from "@babylonjs/core";
 import { Vector3, Color3, Quaternion, Axis } from "@babylonjs/core";
 import { HemisphericLight, DirectionalLight } from "@babylonjs/core";
 import { AssetsManager, AbstractMesh } from "@babylonjs/core";
 import { WebXRCamera, WebXRInputSource, WebXRControllerComponent } from "@babylonjs/core";
+import { GUI3DManager, Button3D, TextBlock } from "@babylonjs/gui"
 
 // Side effects
 import "@babylonjs/loaders/glTF/2.0/glTFLoader";
@@ -96,6 +97,10 @@ class Game
             skyboxColor: new Color3(.059, .663, .80)
         });
 
+        // Make sure the ground and skybox are not pickable
+        environment!.ground!.isPickable = false;
+        environment!.skybox!.isPickable = false;
+
          // Creates the XR experience helper
          const xrHelper = await this.scene.createDefaultXRExperienceAsync({});
 
@@ -117,6 +122,33 @@ class Game
                 this.rightController = inputSource;
             }  
         });
+
+
+        // The manager automates some of the GUI creation steps
+        var guiManager = new GUI3DManager(this.scene);
+
+        // Create a test button
+        var testButton = new Button3D("testButton");
+        guiManager.addControl(testButton);
+
+         // Create the test button text
+         var testButtonText = new TextBlock();
+         testButtonText.text = "Hello world!";
+         testButtonText.color = "white";
+         testButtonText.fontSize = 24;
+         testButtonText.scaleY = 2;
+         testButton.content = testButtonText;
+
+        // Add an event handler to the button
+        // This can be triggered with either a mouse click or selection with the VR laser pointer
+        testButton.onPointerDownObservable.add(() => {
+            Logger.Log("Hello world!");
+        });
+
+        // This must be done after addControl to overwrite the default content
+        testButton.position = new Vector3(0, 1.6, 3); 
+        testButton.scaling.y = .5;   
+
         
          // The assets manager can be used to load multiple assets
          var assetsManager = new AssetsManager(this.scene);
@@ -132,11 +164,14 @@ class Game
 
             // Add your code here
  
-             // Show the debug layer
-             //this.scene.debugLayer.show();
+             
          }; 
-         
+
+         // Enable the debug layer to view and manipulate the contents the scene
+         //this.scene.debugLayer.show();
     }
+
+    
 
     // The main update loop will be executed once per frame before the scene is rendered
     private update() : void
