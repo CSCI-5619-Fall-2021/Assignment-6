@@ -63,9 +63,9 @@ Graded out of 20 points.
 
 2. Make at least four objects in your virtual scene grabbable.  (4)
 
-3. Create your own custom spatial interfaces using the Babylon GUI! You are free to design any type of user interface that you want, and you can use both of the GUI creation methods described above.  Your project should contain at least **five distinct types** of interactive controls. Non-interactive controls such as a static text block do not count.  (2 points per control type, 10 points max)
+3. Create your own custom spatial interfaces using the Babylon GUI! You are free to design any type of user interface that you want, and you can use both of the GUI creation methods described above.  Your project should contain at least **five distinct types** of interactive controls. Non-interactive controls such as a static text block do not count.  (1 points per control type, 5 points max)
 
-4. Add event handlers to five GUI controls that perform useful functions such as object manipulation, locomotion, or other 3D tasks. You are free to implement any type of object manipulation that you want. Creativity is encouraged!  However, make sure to include a description of your custom GUI functions in the readme file.  (2 point per control, 10 points max)
+4. Add event handlers to five GUI controls that perform useful functions such as object manipulation, locomotion, or other 3D tasks. You are free to implement any type of object manipulation that you want. Creativity is encouraged!  However, make sure to include a description of your custom GUI functions in the readme file.  (1 point per control, 5 points max)
    *Hint: you will need to add an observable to your controls to achieve this.  For example:*
 
    ```
