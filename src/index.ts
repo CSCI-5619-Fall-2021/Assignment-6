@@ -9,7 +9,7 @@ import { Vector3, Color3, Quaternion, Axis } from "@babylonjs/core";
 import { HemisphericLight, DirectionalLight } from "@babylonjs/core";
 import { AssetsManager, AbstractMesh } from "@babylonjs/core";
 import { WebXRCamera, WebXRInputSource, WebXRControllerComponent } from "@babylonjs/core";
-import { GUI3DManager, Button3D, AdvancedDynamicTexture, TextBlock } from "@babylonjs/gui"
+import { GUI3DManager, AdvancedDynamicTexture, Button3D, TextBlock } from "@babylonjs/gui"
 
 // Side effects
 import "@babylonjs/loaders/glTF/2.0/glTFLoader";
@@ -125,63 +125,56 @@ class Game
 
 
 
+
+        
         // Spatial interface created using Babylon 2D GUI
         // See: https://doc.babylonjs.com/divingDeeper/gui/gui
 
-        var staticTextPlane = MeshBuilder.CreatePlane("textPlane", {}, this.scene);
-        staticTextPlane.position = new Vector3(0, 1, 3);
-        staticTextPlane.isPickable = false;
+        var guiPlane = MeshBuilder.CreatePlane("textPlane", {}, this.scene);
+        guiPlane.position = new Vector3(-1.5, 1.6, 3);
+        guiPlane.scaling = new Vector3(5, 5, 1);
 
         // Create a dynamic texture for adding GUI controls
-        var staticTextTexture = AdvancedDynamicTexture.CreateForMesh(staticTextPlane, 512, 512);
+        var guiTexture = AdvancedDynamicTexture.CreateForMesh(guiPlane, 512, 512);
 
         // Create a static text block
         var staticText = new TextBlock();
         staticText.text = "Hello world!";
         staticText.color = "white";
-        staticText.fontSize = 12;
-        staticTextTexture.addControl(staticText);
+        staticText.fontSize = 36;
+        guiTexture.addControl(staticText);
 
 
 
 
 
 
-
-
-        // Babylon 3D GUI
+        // Example of the Babylon 3D GUI
         // See: https://doc.babylonjs.com/divingDeeper/gui/gui3D
         // The manager automates some of the GUI creation steps
         var guiManager = new GUI3DManager(this.scene);
 
         // Create a test button
-        var testButton = new Button3D("testButton");
+        var testButton = new Button3D("button3D");
         guiManager.addControl(testButton);
 
          // Create the test button text
          var testButtonText = new TextBlock();
          testButtonText.text = "Hello world!";
          testButtonText.color = "white";
-         testButtonText.fontSize = 24;
-         testButtonText.scaleY = 2;
+         testButtonText.fontSize = 36;
          testButton.content = testButtonText;
+         testButton.position = new Vector3(1.5, 1.6, 3); 
 
         // Add an event handler to the button
         // This can be triggered with either a mouse click or selection with the VR laser pointer
         testButton.onPointerDownObservable.add(() => {
             Logger.Log("Hello world!");
         });
-
-        // This must be done after addControl to overwrite the default content
-        testButton.position = new Vector3(0, 1.6, 3); 
-        testButton.scaling.y = .5;   
+        
 
 
 
-
-
- 
-  
 
 
          // The assets manager can be used to load multiple assets
@@ -205,7 +198,7 @@ class Game
 
 
          // Enable the debug layer to view and manipulate the contents the scene
-         //this.scene.debugLayer.show();
+         this.scene.debugLayer.show();
     }
 
     
