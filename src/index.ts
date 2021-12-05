@@ -9,7 +9,7 @@ import { Vector3, Color3, Quaternion, Axis } from "@babylonjs/core";
 import { HemisphericLight, DirectionalLight } from "@babylonjs/core";
 import { AssetsManager, AbstractMesh } from "@babylonjs/core";
 import { WebXRCamera, WebXRInputSource, WebXRControllerComponent } from "@babylonjs/core";
-import { GUI3DManager, AdvancedDynamicTexture, Button3D, TextBlock } from "@babylonjs/gui"
+import { AdvancedDynamicTexture, TextBlock } from "@babylonjs/gui"
 
 // Side effects
 import "@babylonjs/loaders/glTF/2.0/glTFLoader";
@@ -125,13 +125,12 @@ class Game
 
 
 
-
         
         // Spatial interface created using Babylon 2D GUI
         // See: https://doc.babylonjs.com/divingDeeper/gui/gui
 
         var guiPlane = MeshBuilder.CreatePlane("textPlane", {}, this.scene);
-        guiPlane.position = new Vector3(-1.5, 1.6, 3);
+        guiPlane.position = new Vector3(0, 1.6, 3);
         guiPlane.scaling = new Vector3(5, 5, 1);
 
         // Create a dynamic texture for adding GUI controls
@@ -143,36 +142,6 @@ class Game
         staticText.color = "white";
         staticText.fontSize = 36;
         guiTexture.addControl(staticText);
-
-
-
-
-
-
-        // Example of the Babylon 3D GUI
-        // See: https://doc.babylonjs.com/divingDeeper/gui/gui3D
-        // The manager automates some of the GUI creation steps
-        var guiManager = new GUI3DManager(this.scene);
-
-        // Create a test button
-        var testButton = new Button3D("button3D");
-        guiManager.addControl(testButton);
-
-         // Create the test button text
-         var testButtonText = new TextBlock();
-         testButtonText.text = "Hello world!";
-         testButtonText.color = "white";
-         testButtonText.fontSize = 36;
-         testButton.content = testButtonText;
-         testButton.position = new Vector3(1.5, 1.6, 3); 
-
-        // Add an event handler to the button
-        // This can be triggered with either a mouse click or selection with the VR laser pointer
-        testButton.onPointerDownObservable.add(() => {
-            Logger.Log("Hello world!");
-        });
-        
-
 
 
 
@@ -190,7 +159,7 @@ class Game
          assetsManager.onFinish = (tasks) => {
 
             // Add your code here
- 
+            // Process the loaded assets if necessary
              
          }; 
 
