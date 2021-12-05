@@ -59,7 +59,7 @@ There are extensive tutorials with code samples available in the Babylon online 
 
 Graded out of 20 points.  
 
-1. Replace the default virtual environment with a virtual scene using third party assets.  You can use [UnityGLTF](https://github.com/KhronosGroup/UnityGLTF) to export assets from Unity.  If you are running Windows, there is a prebuilt Unity package posted on Canvas that you can import into your project (under Assets->Import Package).  For platforms other than Windows, you will need to download the source from GitHub and compile the C# module manually.  (6)
+1. Replace the default virtual environment with a virtual scene using third party assets.  You can use [UnityGLTF](https://github.com/KhronosGroup/UnityGLTF) to export assets from Unity.  If you are running Windows, there is a prebuilt Unity package posted under "Useful Links" in Canvas that you can import into your project (in the menu,  select Assets->Import Package).  For platforms other than Windows, you will need to download the source from GitHub and compile the C# module manually.  (6)
 
 2. Make at least four objects in your virtual scene grabbable.  (4)
 
