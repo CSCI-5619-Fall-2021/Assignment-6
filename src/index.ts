@@ -9,7 +9,7 @@ import { Vector3, Color3, Quaternion, Axis } from "@babylonjs/core";
 import { HemisphericLight, DirectionalLight } from "@babylonjs/core";
 import { AssetsManager, AbstractMesh } from "@babylonjs/core";
 import { WebXRCamera, WebXRInputSource, WebXRControllerComponent } from "@babylonjs/core";
-import { GUI3DManager, Button3D, TextBlock } from "@babylonjs/gui"
+import { GUI3DManager, Button3D, AdvancedDynamicTexture, TextBlock } from "@babylonjs/gui"
 
 // Side effects
 import "@babylonjs/loaders/glTF/2.0/glTFLoader";
@@ -124,6 +124,33 @@ class Game
         });
 
 
+
+        // Spatial interface created using Babylon 2D GUI
+        // See: https://doc.babylonjs.com/divingDeeper/gui/gui
+
+        var staticTextPlane = MeshBuilder.CreatePlane("textPlane", {}, this.scene);
+        staticTextPlane.position = new Vector3(0, 1, 3);
+        staticTextPlane.isPickable = false;
+
+        // Create a dynamic texture for adding GUI controls
+        var staticTextTexture = AdvancedDynamicTexture.CreateForMesh(staticTextPlane, 512, 512);
+
+        // Create a static text block
+        var staticText = new TextBlock();
+        staticText.text = "Hello world!";
+        staticText.color = "white";
+        staticText.fontSize = 12;
+        staticTextTexture.addControl(staticText);
+
+
+
+
+
+
+
+
+        // Babylon 3D GUI
+        // See: https://doc.babylonjs.com/divingDeeper/gui/gui3D
         // The manager automates some of the GUI creation steps
         var guiManager = new GUI3DManager(this.scene);
 
@@ -149,7 +176,14 @@ class Game
         testButton.position = new Vector3(0, 1.6, 3); 
         testButton.scaling.y = .5;   
 
-        
+
+
+
+
+ 
+  
+
+
          // The assets manager can be used to load multiple assets
          var assetsManager = new AssetsManager(this.scene);
 
@@ -166,6 +200,9 @@ class Game
  
              
          }; 
+
+
+
 
          // Enable the debug layer to view and manipulate the contents the scene
          //this.scene.debugLayer.show();

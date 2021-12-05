@@ -22,7 +22,7 @@ Custom GUI Instructions:
 
 Graded out of 20 points.  
 
-1. Add at least six mesh objects to your environment.  You can use [UnityGLTF](https://github.com/KhronosGroup/UnityGLTF) to a export assets from Unity.  If you are running Windows, you can download the package posted on Canvas with prebuilt binaries.  For other platforms, you will need to download it from GitHub and compile the C# module manually.  (4)
+1. Replace the default virtual environment with a virtual scene using third party assets.  You can use [UnityGLTF](https://github.com/KhronosGroup/UnityGLTF) to export assets from Unity.  If you are running Windows, there is a prebuilt Unity package posted on Canvas that you can import into your project (under Assets->Import Package).  For platforms other than Windows, you will need to download the source from GitHub and compile the C# module manually.  (4)
 7. Create your own custom spatial GUI! You are free to design any type of user interface that you want. However, the GUI should contain at least five distinct types of interactive controls. (Non-interactive controls such as a static text block do not count.) You can find a list of control types in the [Babylon documentation](https://doc.babylonjs.com/divingDeeper/gui/gui).   You can use both 2D and 3D controls, and you can split them up among one or more GUI planes as appropriate. (1 point per control type, 5 points max)
 8. Link the GUI controls to perform useful functions such as object manipulation, locomotion, or other 3D tasks. Creativity is encouraged! Again, you are free to implement any type of object manipulation that you want. However, make sure to include instructions for using your custom GUI in the documentation above. (1 point per control type, 5 points max)
 
